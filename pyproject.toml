@@ -4,7 +4,6 @@ version = "0.1.0"
 description = ""
 authors = ["Artur Akmalov <artur@akmalov.com>"]
 readme = "README.md"
-packages = [{include = "infra_update_checker"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
