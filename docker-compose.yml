@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  releases-checker:
+    build: ./
+    image: releases-checker
+    ports:
+      - 80:80
+    command: "python main.py"
+    volumes:
+      - ./config.yaml:/app/config.yaml

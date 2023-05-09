@@ -1,0 +1,49 @@
+services:
+  prometheus:
+    current_tag: v2.31.1
+    current_tag_date: 05.11.2021
+    latest_tag: v2.43.1
+    latest_tag_date: 05.05.2023
+    latest_tag_url: https://github.com/prometheus/prometheus/releases/tag/v2.43.1
+    missed_releases: 43
+    missed_releases_days: 546
+  node-exporter:
+    current_tag: v1.5.0
+    current_tag_date: 29.11.2022
+    latest_tag: v1.5.0
+    latest_tag_date: 29.11.2022
+    latest_tag_url: https://github.com/prometheus/node_exporter/releases/tag/v1.5.0
+    missed_releases: 0
+    missed_releases_days: 0
+  sentry:
+    current_tag: 22.11.0
+    current_tag_date: 15.11.2022
+    latest_tag: 23.4.0
+    latest_tag_date: 17.04.2023
+    latest_tag_url: https://github.com/getsentry/sentry/releases/tag/23.4.0
+    missed_releases: 7
+    missed_releases_days: 153
+  playwright:
+    current_tag: v1.31.0
+    current_tag_date: 21.02.2023
+    latest_tag: v1.33.0
+    latest_tag_date: 27.04.2023
+    latest_tag_url: https://github.com/microsoft/playwright/releases/tag/v1.33.0
+    missed_releases: 7
+    missed_releases_days: 65
+  redis:
+    current_tag: 6.2.6
+    current_tag_date: 04.10.2021
+    latest_tag: 7.0.11
+    latest_tag_date: 17.04.2023
+    latest_tag_url: https://github.com/redis/redis/releases/tag/7.0.11
+    missed_releases: 21
+    missed_releases_days: 560
+  cadvisor:
+    current_tag: v0.37.5
+    current_tag_date: 18.02.2021
+    latest_tag: v0.47.0
+    latest_tag_date: 06.01.2023
+    latest_tag_url: https://github.com/google/cadvisor/releases/tag/v0.47.0
+    missed_releases: 14
+    missed_releases_days: 687

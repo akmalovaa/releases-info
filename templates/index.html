@@ -1,64 +1,56 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    {% block styles %}
-    <!-- Bootstrap CSS -->
-    {{ bootstrap.load_css() }}
-    {% endblock %}
-    <title>Infra update checker</title>
-</head>
-
+{% extends "base.html" %}
+{% block content %}
 <body class="bg-light">
     <div class="container">
         <div class="row">
-            <div class="py-4 text-center">
-                <h3 class="display-6">Check new release versions for your project list</h3>
+            {% if context == {} %}
+            <hr class="mb-4">
+            <div class="alert alert-dismissible alert-warning">
+                <h4 class="alert-heading">Error result.yml</h4>
+                <p class="mb-0"> The file result.yml contains errors or was incorrectly generated </p>
             </div>
-            <div class="bs-docs-section">
-                <!-- <form class="image-generation" novalidate="" method="POST">
-                    <div class="form-group">
-                        <label for="exampleInputSize">Image size (1-999 Mb):</label>
-                        <input type="number" name="image_size" min="1" max="999" class="form-control"
-                            id="exampleInputSize" placeholder="1" value="1" :state="nameState">
-                        <div class="form-group">
-                            <label for="exampleSelect">Image format</label>
-                            <select class="form-control" id="exampleSelect" name="image_type">
-                                <option>jpg</option>
-                                <option>png</option>
-                            </select>
-                        </div>
-                        <div class="py-4 text-right">
-                            <input type="submit" class="btn btn-primary" value="Get image">
-                        </div>
-
-                </form> -->
-                <!-- {% if context and context != 'Error' %}
-                <hr class="mb-4">
-                <div class="alert alert-dismissible alert-warning">
-                    <h4 class="alert-heading">Done</h4>
-                    <p class="mb-0">Generated file format: {{ context.format }} size: {{ context.size }} Mb <a href={{
-                            context.url }} class="alert-link">Download file</a>.</p>
-                </div>
-                {% endif %}
-                {% if context == 'Error' %}
-                <hr class="mb-4">
-                <div class="alert alert-dismissible alert-warning">
-                    <h4 class="alert-heading">Error</h4>
-                    <p class="mb-0"> Image size out range </p>
-                </div>
-                {% endif %}
-                {% block scripts %} -->
-                <!-- Optional JavaScript -->
-                {{ bootstrap.load_js() }}
-                {% endblock %}
-
+            {% else %}
+            <div class="bs-docs-section mt-4">
+                <table class="table table-hover align-middle">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col" width="20%">Name</th>
+                            <th scope="col" width="15%">Source</th>
+                            <th scope="col" width="25%">Current version</th>
+                            <th scope="col" width="25%">Latest version</th>
+                            <th scope="col" width="20%">Miss releases</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for key, value in context.items() %}
+                        <tr>
+                            <th scope="row">{{ key }}</th>
+                            <td> <img src="../static/github.png" width="25"></td>
+                            <td>
+                                {{ value['current_tag'] }} <br>
+                                <small class="text-muted">{{ value['current_tag_date'] }}</small> 
+                            </td>
+                            <td>
+                                <a href='{{ value['latest_tag_url'] }}' target="_blank" class="more">{{ value['latest_tag'] }}</a> <br> 
+                                <small class="text-muted">{{ value['latest_tag_date'] }}</small>
+                            </td>
+                            <td>
+                                <span class="fw-bolder">Count: </span>{{ value['missed_releases'] }} <br> 
+                                <span class="fw-bolder">Days: </span>{{ value['missed_releases_days'] }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% endif %}
+            {% block scripts %}
+            <!-- Optional JavaScript -->
+            {{ bootstrap.load_js() }}
+            {% endblock %}
             </div>
         </div>
     </div>
 
 </body>
-
-</html>
+{% endblock %}

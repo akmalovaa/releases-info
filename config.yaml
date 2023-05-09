@@ -1,0 +1,37 @@
+services:
+  prometheus:
+    github:
+      owner: prometheus
+      repo: prometheus
+    version: v2.31.1
+
+  node-exporter:
+    github:
+      owner: prometheus
+      repo: node_exporter
+    version: v1.5.0
+    
+  sentry:
+    github:
+      owner: getsentry
+      repo: sentry
+    version: 22.11.0
+  
+  playwright:
+    github:
+      owner: microsoft
+      repo: playwright
+    version: v1.31.0
+
+  redis:
+    github:
+      owner: redis
+      repo: redis
+    version: 6.2.6
+  
+  cadvisor:
+    github:
+      owner: google
+      repo: cadvisor
+    version: v0.37.5
+

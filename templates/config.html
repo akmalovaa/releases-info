@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<body class="bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="py-4">
+                <h3 class="display-10">config.yml</h3>
+            </div> 
+            {% if context == "" %}
+            <hr class="mb-4">
+            <div class="alert alert-dismissible alert-warning">
+                <h4 class="alert-heading">Error config.yml</h4>
+                <p class="mb-0"> Error parsing config.yml or file not found</p>
+            </div>
+            {% else %}
+            <code>
+            <p>services:</p>
+            {% for key, value in context.items() %}
+                <p class="ms-2">{{ key }}:</p>
+                {% for key, value in value.items() %}
+                    
+                    {% if value is mapping %}
+                        <p class="ms-4">{{key}}: </p>
+                        {% for key, value in value.items() %}
+                        <p class="ms-5">{{ key }}: {{ value }}</p>
+                        {% endfor %}
+                    {% else %}
+                        <p class="ms-4">{{ key }}: {{ value }}</p>
+                    {% endif %}
+                    
+                {% endfor %}
+            {% endfor %}
+            </code>
+            {% endif %}
+
+            {% block scripts %}
+            <!-- Optional JavaScript -->
+            {{ bootstrap.load_js() }}
+            {% endblock %}
+        </div>
+    </div>
+    </div>
+</body>
+
+{% endblock %}
