@@ -5,6 +5,8 @@ The service checks new versions of your projects and shows how far behind we are
 <!-- <img src="./example.png" width="400" alt="Example home page"><br> -->
 ![Releases info](./example.png "Example home paget")
 
+At the moment it only works with github (projects where there is a release list) there are plans to add Docker hub check images
+
 # Configuration
 
 Change config.yaml file:
