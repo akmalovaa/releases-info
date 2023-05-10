@@ -9,7 +9,7 @@ At the moment it only works with github (projects where there is a release list)
 
 # Configuration
 
-Change config.yaml file:
+Change file [config.yaml](https://github.com/akmalovaa/releases-info/blob/main/config.yaml):
 
 example:
 
@@ -39,7 +39,8 @@ docker-compose up -d
 
 
 # To Do
- - Add source Docker HUB
+
+- Add source [Docker HUB](https://hub.docker.com/)
  - Telegram notifications about new releases
  - Auto parsing current version projects from iac repo
  - Improve Frontend, use React
