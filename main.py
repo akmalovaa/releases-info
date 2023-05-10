@@ -1,21 +1,20 @@
-import os
-import yaml
-import github_releases
 import logging
 
-from flask import Flask, request, render_template, send_file, send_from_directory, url_for
-# from image_generator import generate_image
+import yaml
+from flask import Flask, render_template, request
 from flask_bootstrap import Bootstrap5
+
+import github_releases
+
 
 app = Flask(__name__)
 bootstrap = Bootstrap5(app)
 
 def _fetch_result_yaml():
-    """Fetch result.yaml"""
-    with open("result.yaml", 'r') as stream:
+    """Fetch result.yaml."""
+    with open("result.yaml") as stream:
         try:
             result_yaml = yaml.safe_load(stream)
-            # print(result_yaml)
         except yaml.YAMLError as exc:
             logging.error(f"YAML error in result.yaml {exc}")
             return {}
