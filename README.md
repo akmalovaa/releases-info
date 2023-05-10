@@ -1,4 +1,4 @@
-# Projects list releases info
+# Releases info for projects list
 
 The service checks new versions of your projects and shows how far behind we are in terms of releases
 
