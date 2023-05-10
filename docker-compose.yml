@@ -1,9 +1,9 @@
 version: '3.7'
 
 services:
-  releases-checker:
+  releases-info:
     build: ./
-    image: releases-checker
+    image: releases-info
     ports:
       - 80:80
     command: "python main.py"
